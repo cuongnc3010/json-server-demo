@@ -1,0 +1,56 @@
+@baseUrl = http://localhost:3000/api
+@resourceName = products
+
+#Products
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+# @name filter
+GET {{baseUrl}}/{{resourceName}}?price_gte=500
+
+###
+# @name filter
+GET {{baseUrl}}/{{resourceName}}?name_like=plastic
+
+###
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=4
+
+###
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}} 
+Content-Type: application/json
+
+{
+      "categoryId": "64502fb9-4040-438a-887f-db540bb3248c",
+      "name": "Refined Soft Bike",
+      "color": "blue",
+      "price": 300,
+      "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      "thumbnailUrl": "http://placeimg.com/400/400"
+    }
+
+###
+
+# @name update
+PATCH {{baseUrl}}/{{resourceName}}/IdTV3gk
+Content-Type: application/json
+
+{
+  "color": "red",
+  "price": 233
+}
+
+###
+
+# @name remove
+DELETE {{baseUrl}}/{{resourceName}}/1
